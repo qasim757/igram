@@ -1,0 +1,6 @@
+{
+  "name": "iGram Instagram Downloader",
+  "description": "Download eligible Instagram videos and Reels online. Paste a supported link, preview available media, and save it with our simple downloader.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

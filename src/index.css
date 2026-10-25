@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  body {
+    background-color: #ffffff;
+    color: #18181b;
+  }
+}
+
+/* Custom focus ring styling */
+:focus-visible {
+  outline: 2px solid #ec4899;
+  outline-offset: 2px;
+}
