@@ -3,6 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Shield for browser extension request interceptors attempting to assign window.fetch -->
+    <script>
+      (function() {
+        try {
+          var originalFetch = window.fetch;
+          var activeFetch = originalFetch;
+          Object.defineProperty(window, 'fetch', {
+            get: function() {
+              return activeFetch;
+            },
+            set: function(fn) {
+              activeFetch = fn;
+            },
+            configurable: true,
+            enumerable: true
+          });
+        } catch (e) {}
+
+        window.addEventListener('error', function(event) {
+          if (event && event.filename && event.filename.indexOf('chrome-extension://') !== -1) {
+            if (event.preventDefault) event.preventDefault();
+            return true;
+          }
+        });
+      })();
+    </script>
     <title>Instagram Video Downloader – Download Reels Online</title>
     <meta
       name="description"

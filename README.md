@@ -163,9 +163,23 @@ npm test
 ```
 Executes all 14 unit and integration tests against URL validation, SSRF filters, and live provider extraction.
 
-### Production Build
+### Deploying to Vercel (Zero-Config)
+The project includes a ready-to-use `vercel.json` and `api/index.ts` serverless adapter:
+1. Push your repository to GitHub, GitLab, or Bitbucket.
+2. Import the project into your Vercel Dashboard.
+3. Framework Preset: **Vite**.
+4. Root Directory: `./` (default).
+5. Build Command: `npm run build` (auto-detected).
+6. Output Directory: `dist` (auto-detected).
+7. (Optional) Set Environment Variables:
+   - `PRIMARY_PROVIDER=weirddl`
+   - `WEIRDDL_API_BASE=https://weirddl.sbs`
+   - `ALLDL_API_BASE=https://ahm7xmakki.com`
+8. Click **Deploy**. Vercel will host the frontend on its Edge Network and route all `/api/*` endpoints to the serverless function handler.
+
+### Deploying via Docker / Cloud Run / Render / Railway
 ```bash
 npm run build
 npm start
 ```
-Compiles Vite frontend assets to `dist/` and starts Express in production mode.
+Starts the standalone Node.js server (`server.ts`) listening on `PORT` (default 3000).
